@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppResenas.Migrations
 {
     [DbContext(typeof(ResenasDataBaseContext))]
-    [Migration("20200602010205_AppResenas.Context.ResenasDataBaseContext")]
+    [Migration("20200602210322_AppResenas.Context.ResenasDataBaseContext")]
     partial class AppResenasContextResenasDataBaseContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
