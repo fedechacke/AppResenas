@@ -46,6 +46,9 @@ namespace AppResenas.Controllers
         // GET: Libro/Create
         public IActionResult Create()
         {
+            List<Autor> lAutores = new List<Autor>();
+            lAutores = _context.autores.ToList();
+            ViewBag.listaAutores = lAutores;
             return View();
         }
 

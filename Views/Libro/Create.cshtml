@@ -13,20 +13,20 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="titulo" class="control-label"></label>
+                <label asp-for="titulo" class="control-label">Titulo</label>
                 <input asp-for="titulo" class="form-control" />
                 <span asp-validation-for="titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="isbn" class="control-label"></label>
+                <label asp-for="isbn" class="control-label">ISBN</label>
                 <input asp-for="isbn" class="form-control" />
                 <span asp-validation-for="isbn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="autor" class="control-label"></label>
-                <input asp-for="autor" class="form-control" />
-
-                <span asp-validation-for="isbn" class="text-danger"></span>
+                <label asp-for="autor" class="control-label">Autor</label>
+                @Html.DropDownList("Autor", new SelectList(ViewBag.listaAutores, "id", "nombre"))
+                @Html.ActionLink("+", "Create","Autor")
+                <span asp-validation-for="autor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="resena" class="control-label"></label>
