@@ -81,6 +81,7 @@ namespace AppResenas.Controllers
             {
                 return NotFound();
             }
+            ViewBag.libroId =  id;
             return View(libro);
         }
 

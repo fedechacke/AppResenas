@@ -24,6 +24,11 @@
                 <span asp-validation-for="isbn" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="resena" class="control-label"></label>
+                <button>@Html.ActionLink("Reseña", "Edit", "Resena", ViewBag.libroId)</button>
+                <span asp-validation-for="resena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

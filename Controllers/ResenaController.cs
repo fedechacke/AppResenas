@@ -37,7 +37,7 @@ namespace AppResenas.Controllers
                 .FirstOrDefaultAsync(m => m.id == id);
             if (resena == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Create));
             }
 
             return View(resena);
