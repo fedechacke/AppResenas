@@ -12,9 +12,23 @@ namespace AppResenas.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public string titulo { get; set; }
         public string texto { get; set; }
-        public string tituloLibro { get; set; }
-        public double puntaje { get; set; }
+        public double puntajeAcum { get; set; }
+        public int votos { get; set; }
+
+        public Resena(int id, string texto)
+        {
+            this.id = id;
+            this.texto = texto;
+            puntajeAcum = 0;
+            votos = 0;
+        }
+
+        public void puntuar(double puntaje)
+        {
+            votos += 1;
+            puntajeAcum += puntaje;
+        }
     }
-}
+}   
+

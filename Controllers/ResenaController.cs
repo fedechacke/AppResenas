@@ -54,7 +54,7 @@ namespace AppResenas.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,titulo,texto,tituloLibro,puntaje")] Resena resena)
+        public async Task<IActionResult> Create([Bind("id,texto")] Resena resena)
         {
             if (ModelState.IsValid)
             {

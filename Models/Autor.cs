@@ -15,5 +15,18 @@ namespace AppResenas.Models
         public string nombre { get; set; }
         public string apellido { get; set; }
         public virtual List<Libro> libros { get; set; }
+
+        public Autor(int id, string nombre, string apellido)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            libros = new List<Libro>();
+        }
+
+        public void agregarLibro(Libro libro)
+        {
+            libros.Add(libro);
+        }
     }
 }

@@ -20,6 +20,35 @@ namespace AppResenas.Models
         public List<Resena> resenasFavoritas { get; set; }
         public List<Libro> librosFavoritos { get; set; }
         public List<Autor> autoresFavoritos { get; set; }
+        public bool esAdmin { get; set; }
 
+        public Usuario(int id, string nombre, string apellido, int edad, string username, string password)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.username = username;
+            this.password = password;
+            esAdmin = false;
+            resenasFavoritas = new List<Resena>();
+            librosFavoritos = new List<Libro>();
+            autoresFavoritos = new List<Autor>();
+        }
+
+        public void agregarLibroFavorito(Libro libro) 
+        {
+            librosFavoritos.Add(libro);
+        }
+
+        public void agregarAutorFavorito(Autor autor)
+        {
+            autoresFavoritos.Add(autor);
+        }
+
+        public void agregarResenaFavorita(Resena resena)
+        {
+            resenasFavoritas.Add(resena);
+        }
     }
 }
