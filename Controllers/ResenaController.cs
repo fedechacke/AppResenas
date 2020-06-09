@@ -32,7 +32,7 @@ namespace AppResenas.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.nombreLibro = _context.libros.FirstOrDefaultAsync(m => m.id == id).Result.titulo;
             var resena = await _context.resenas
                 .FirstOrDefaultAsync(m => m.id == id);
             if (resena == null)
