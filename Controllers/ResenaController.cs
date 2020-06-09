@@ -60,7 +60,7 @@ namespace AppResenas.Controllers
             {
                 _context.Add(resena);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(LibroController.Details));
             }
             return View(resena);
         }
@@ -76,7 +76,7 @@ namespace AppResenas.Controllers
             var resena = await _context.resenas.FindAsync(id);
             if (resena == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Create));
             }
             return View(resena);
         }
