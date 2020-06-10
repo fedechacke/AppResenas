@@ -3,26 +3,58 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+@{ 
+    double puntaje = 0;
+    if(Model.resena.votos > 0)
+    {
+        puntaje = Model.resena.puntajeAcum / Model.resena.votos;
+    }
+    
+    }
+    
+    
 <h1>Details</h1>
 
 <div>
     <h4>Libro</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.titulo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.titulo)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.isbn)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.isbn)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.autor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.autor.nombre + " " + model.autor.apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.resena)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.resena.texto)
+        </dd>
+        <dt class="col-sm-2">
+            Puntaje
+        </dt>
+        <dd class="col-sm-10">
+            @puntaje
+        </dd>
     </dl>
+</div>
+<div>
+    <button>Agregar Libro a Favoritos</button>
+    <button>Agregar Autor a Favoritos</button>
+    <button>Agregar Reseña a Favoritos</button>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |

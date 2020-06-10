@@ -13,27 +13,27 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nombre" class="control-label"></label>
+                <label asp-for="nombre" class="control-label">Nombre</label>
                 <input asp-for="nombre" class="form-control" />
                 <span asp-validation-for="nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="apellido" class="control-label"></label>
+                <label asp-for="apellido" class="control-label">Apellido</label>
                 <input asp-for="apellido" class="form-control" />
                 <span asp-validation-for="apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="edad" class="control-label"></label>
-                <input asp-for="edad" class="form-control" />
+                <label asp-for="edad" class="control-label">Edad</label>
+                <input asp-for="edad" class="form-control" type="range"/>
                 <span asp-validation-for="edad" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="username" class="control-label"></label>
+                <label asp-for="username" class="control-label">Nombre de Usuario</label>
                 <input asp-for="username" class="form-control" />
                 <span asp-validation-for="username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="password" class="control-label"></label>
+                <label asp-for="password" class="control-label">Contraseña</label>
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>

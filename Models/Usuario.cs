@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,10 +13,17 @@ namespace AppResenas.Models
         [Key]
         [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        [Required]
         public string nombre { get; set; }
+        [Required]
         public string apellido { get; set; }
         public int edad { get; set; }
+        [Required]
+        [MinLength(8)]
         public string username { get; set; }
+        [Required]
+        [PasswordPropertyText]
+        [MinLength(8)]
         public string password { get; set; }
         public List<Resena> resenasFavoritas { get; set; }
         public List<Libro> librosFavoritos { get; set; }
