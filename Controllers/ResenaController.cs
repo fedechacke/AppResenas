@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppResenas.Context;
 using AppResenas.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace AppResenas.Controllers
 {
@@ -32,6 +33,7 @@ namespace AppResenas.Controllers
             {
                 return NotFound();
             }
+           
             ViewBag.nombreLibro = _context.libros.FirstOrDefaultAsync(m => m.id == id).Result.titulo;
             var resena = await _context.resenas
                 .FirstOrDefaultAsync(m => m.id == id);

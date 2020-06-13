@@ -37,6 +37,12 @@
     </dl>
 </div>
 <div>
+    @*@{double puntos = 0; }
+    <form asp-action="@Model.Puntuar(@puntos)">
+        <input type="range" min="0" max="10" step="1" id="puntuar" action="@puntos" />
+    </form>
+    
+    <a asp-action="@Model.puntuar(@puntos)">Puntuar</a>*@
     <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

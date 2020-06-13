@@ -3,14 +3,6 @@
 @{
     ViewData["Title"] = "Details";
 }
-@{ 
-    double puntaje = 0;
-    if(Model.resena.votos > 0)
-    {
-        puntaje = Model.resena.puntajeAcum / Model.resena.votos;
-    }
-    
-    }
     
     
 <h1>Details</h1>
@@ -47,7 +39,7 @@
             Puntaje
         </dt>
         <dd class="col-sm-10">
-            @puntaje
+           @ViewBag.puntaje
         </dd>
     </dl>
 </div>

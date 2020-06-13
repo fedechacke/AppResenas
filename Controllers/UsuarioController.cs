@@ -58,6 +58,11 @@ namespace AppResenas.Controllers
         {
             if (ModelState.IsValid)
             {
+                //AGREGAR ESTA LOGICA
+                usuario.autoresFavoritos = new List<Autor>();
+                usuario.esAdmin = false;
+                usuario.librosFavoritos = new List<Libro>();
+                usuario.resenasFavoritas = new List<Resena>();
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Details));

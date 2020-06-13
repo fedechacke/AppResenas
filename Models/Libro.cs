@@ -16,6 +16,7 @@ namespace AppResenas.Models
         public string isbn { get; set; }
         public Autor autor { get; set; }
         public Resena resena { get; set; }
+        // SACAR RESENA Y AGREGAR STRING TEXTORESENA, DOUBLE PUNTAJE ACUMULADO Y INT VOTOS
 
     }
 }

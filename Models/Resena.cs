@@ -9,6 +9,8 @@ namespace AppResenas.Models
 {
     public class Resena
     {
+
+        //VUELA TODO
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
@@ -24,10 +26,11 @@ namespace AppResenas.Models
             votos = 0;
         }
 
-        public void puntuar(double puntaje)
+        public void Puntuar(double puntaje)
         {
             votos += 1;
             puntajeAcum += puntaje;
+            
         }
     }
 }   

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppResenas.Context;
 using AppResenas.Models;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 
 namespace AppResenas.Controllers
 {
@@ -35,6 +36,24 @@ namespace AppResenas.Controllers
 
             var libro = await _context.libros
                 .FirstOrDefaultAsync(m => m.id == id);
+
+            var resena = await _context.resenas
+                .FirstOrDefaultAsync(m => m.id == id);
+
+            ViewBag.resena = resena;
+
+            string puntaje = "--";
+            double puntajeD = 0;
+
+            if(resena.votos != 0)
+            {
+                puntajeD = (resena.puntajeAcum / resena.votos);
+                puntaje = puntajeD.ToString();
+            }
+           
+
+            ViewBag.puntaje = puntaje;
+
             if (libro == null)
             {
                 return NotFound();
@@ -46,6 +65,7 @@ namespace AppResenas.Controllers
         // GET: Libro/Create
         public IActionResult Create()
         {
+            //COPIAR TAL CUAL ACA Y EN LA VISTA
             List<Autor> lAutores = new List<Autor>();
             lAutores = _context.autores.ToList();
             ViewBag.listaAutores = lAutores;
@@ -57,10 +77,11 @@ namespace AppResenas.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,titulo,isbn")] Libro libro)
+        public async Task<IActionResult> Create([Bind("id,titulo,isbn,autor")] Libro libro)
         {
             if (ModelState.IsValid)
             {
+                libro.resena = new Resena(libro.id, ViewBag.resenaTexto);
                 _context.Add(libro);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

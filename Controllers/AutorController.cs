@@ -22,6 +22,7 @@ namespace AppResenas.Controllers
         // GET: Autor
         public async Task<IActionResult> Index()
         {
+           
             return View(await _context.autores.ToListAsync());
         }
 
@@ -58,6 +59,7 @@ namespace AppResenas.Controllers
         {
             if (ModelState.IsValid)
             {
+                autor.libros = new List<Libro>();
                 _context.Add(autor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
